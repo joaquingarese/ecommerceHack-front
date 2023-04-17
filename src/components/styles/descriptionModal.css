@@ -1,0 +1,14 @@
+#custom-modal {
+  margin-top: 200px;
+  width: 800px;
+  max-width: none;
+  height: 80%;
+}
+
+/* Media query for Bootstrap md breakpoint (768px) */
+@media (max-width: 767.98px) {
+  #custom-modal {
+    width: 90%; /* Set the desired width for md breakpoint */
+    height: 70%; /* Set the desired height for md breakpoint */
+  }
+}

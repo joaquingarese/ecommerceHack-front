@@ -1,0 +1,163 @@
+:root {
+  --primary-color: #3d3d3b;
+  --secondary-color: #a89c8b;
+  --background-color: #f6f4ef;
+}
+
+#checkoutContainer {
+  margin-top: 87px;
+  min-height: 125vh;
+}
+
+#checkoutContainer .purchase-bg {
+  border-radius: 9px;
+  background-color: rgb(240, 240, 240);
+  /* rgb(240, 239, 239) */
+}
+
+#checkoutContainer body {
+  background-color: var(--background-color);
+}
+
+#checkoutContainer .primary-color-bg {
+  background-color: var(--secondary-color);
+}
+
+#checkoutContainer .secondary-color {
+  color: var(--secondary-color);
+}
+
+#checkoutContainer .secondary-color-bg {
+  background-color: var(--secondary-color);
+}
+
+#checkoutContainer .cart-table thead th {
+  border-bottom: 3px solid transparent !important;
+}
+
+#checkoutContainer .header-div {
+  background-image: linear-gradient(rgb(6, 6, 6), rgba(19, 19, 19, 0.67)),
+    url("https://stories.starbucks.com/uploads/2023/02/SBX20230221-OleatoStory-FeatureHorizontal2-1024x498.jpg");
+  background-color: var(--primary-color);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  margin-top: 87px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#checkoutContainer .text-container-header {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+#checkoutContainer .text-secondary-color {
+  color: var(--secondary-color);
+}
+
+#checkoutContainer .cart-container {
+  height: 90%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+#checkoutContainer .form-control-xs {
+  height: calc(2.3rem);
+  width: 58px;
+  padding: 0.55rem;
+  font-size: 1rem;
+  border: none;
+  line-height: 1;
+}
+
+#checkoutContainer .form-control-xs {
+  height: 2.3rem;
+  width: 58px;
+  padding: 0.55rem;
+  font-size: 1rem;
+  border: none;
+  line-height: 1;
+}
+
+#checkoutContainer .form-control-xs::-webkit-inner-spin-button,
+#checkoutContainer .form-control-xs::-webkit-outer-spin-button {
+  -webkit-appearance: inner-spin-button;
+  opacity: 1;
+}
+
+#checkoutContainer .product-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+#checkoutContainer .no-wrap {
+  white-space: nowrap;
+}
+
+#checkoutContainer .fixed-width-price {
+  width: 55px;
+  display: inline-block;
+  text-align: right;
+}
+
+@media (min-width: 576px) {
+  #checkoutContainer .product-name {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    max-width: initial;
+  }
+}
+
+#checkoutContainer .custom-radio {
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-color);
+  background-color: transparent;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+#checkoutContainer .custom-radio:checked {
+  background-color: var(--secondary-color);
+}
+
+#checkoutContainer .img-size {
+  height: 40px;
+}
+
+@media (max-width: 576px) {
+  #checkoutContainer .cart-table thead tr th:first-child,
+  #checkoutContainer .cart-table tbody tr td:first-child {
+    display: none;
+  }
+}
+
+@media (max-width: 289px) {
+  #checkoutContainer .payment-checkout {
+    width: 100% !important;
+  }
+}
+
+/* For screen sizes between 251 and 576 pixels */
+@media (min-width: 290px) and (max-width: 849px) {
+  #checkoutContainer .payment-checkout {
+    width: 95% !important;
+  }
+}
+
+@media (min-width: 850px) {
+  #checkoutContainer .payment-checkout {
+    width: 90% !important;
+  }
+}

@@ -1,0 +1,31 @@
+#footerContainer {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  /* margin-top: 80px; */
+}
+
+#footerContainer .footer-text-color {
+  color: white;
+}
+
+#footerContainer a {
+  text-decoration: none;
+  color: white;
+}
+#footer {
+  padding: 4rem;
+  background-color: black;
+}
+
+#footerContainer .social-media {
+  margin-right: 2.7rem;
+}
+
+#footerContainer .links-title {
+  margin-right: 3rem;
+}
+
+#footerContainer .media-container {
+  padding-right: 29px;
+}

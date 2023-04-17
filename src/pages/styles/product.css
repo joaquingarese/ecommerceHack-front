@@ -1,0 +1,103 @@
+:root {
+  --primary-color: #3d3d3b;
+  --secondary-color: #a89c8b;
+  --background-color: #f6f4ef;
+}
+
+#productContainer {
+  background-color: #f6f4ef;
+}
+
+#productContainer .color-bg {
+  background-color: var(--background-color) !important;
+}
+
+#productContainer .secondary-color {
+  color: var(--secondary-color);
+}
+
+#productContainer .secondary-color-bg {
+  background-color: var(--secondary-color);
+}
+
+#productContainer .header-div {
+  background-image: linear-gradient(rgb(6, 6, 6), rgba(19, 19, 19, 0.67)),
+    url("https://iazyuszdrivuimeywxju.supabase.co/storage/v1/object/public/images/coffee-background-space-text.jpg");
+  background-color: var(--primary-color);
+  height: 250px;
+  margin-top: 87px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#productContainer .text-secondary-color {
+  color: var(--secondary-color);
+}
+
+#productContainer .description-container {
+  height: 90%;
+  background-color: var(--background-color);
+  padding-top: 50px;
+}
+
+#productContainer .product-input {
+  height: 1rem;
+  width: 55px;
+  padding: 0.95rem;
+  font-size: 1rem;
+  border: none;
+  line-height: 1;
+  text-align: center;
+  background-color: transparent;
+  border-color: transparent;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#productContainer .product-input::-webkit-inner-spin-button,
+#productContainer .product-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#productContainer .img-size {
+  height: 400px;
+  width: auto;
+  margin-left: 0px;
+  margin-right: auto;
+}
+
+#productContainer .no-padding {
+  padding-left: 0px;
+}
+
+#productContainer .description-div {
+  background-color: var(--background-color);
+}
+
+.custom-toast {
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #6382aa;
+  padding: 60px;
+  border-radius: 30px;
+}
+
+@media (max-width: 768px) {
+  #productContainer .product-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #productContainer .img {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #productContainer .img-size {
+    max-height: 350px;
+    margin-left: -30px;
+  }
+}

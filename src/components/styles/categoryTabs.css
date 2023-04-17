@@ -1,0 +1,8 @@
+.nav-tabs .nav-link {
+  color: rgb(145, 144, 144);
+}
+
+.nav-tabs .nav-link.active {
+  color: black;
+  background-color: #f6f6f6;
+}

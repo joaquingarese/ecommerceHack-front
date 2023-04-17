@@ -1,0 +1,38 @@
+#navBar {
+  top: 0;
+  width: 100%;
+  background-color: #000000;
+  /* z-index: 10; */
+}
+
+.navbar-dark .navbar-nav .nav-link.dropdown-toggle::after {
+  color: white;
+}
+
+.navStyle {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  margin: 0px 5px 0px 5px;
+}
+
+.navStyle:hover {
+  color: #c0aa83;
+}
+
+#menu {
+  background-color: white;
+}
+
+#cartOrder {
+  padding: 0rem 0.4rem;
+  text-align: center;
+  position: relative;
+  right: 10px;
+  bottom: 5px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  display: inline-block;
+  font-size: 1rem;
+  transform-origin: center;
+}

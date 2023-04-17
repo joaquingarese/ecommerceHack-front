@@ -1,0 +1,132 @@
+:root {
+  --primary-color: #3d3d3b;
+  --secondary-color: #a89c8b;
+  --background-color: #f6f6f6;
+}
+
+#aboutUsContainer .hero-title {
+  color: white;
+  font-weight: 100;
+}
+
+#aboutUsContainer video {
+  filter: brightness(35%);
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+#aboutUsContainer .hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+#aboutUsContainer .hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 87px;
+  color: white;
+}
+
+.team {
+  background-color: white;
+  border-radius: 1rem;
+}
+.teamText {
+  padding: 3rem 2rem;
+}
+#boxContainer {
+  margin-top: -100px !important;
+}
+#aboutUsContainer .box {
+  margin-top: 2rem;
+}
+
+#aboutUsContainer .infoCard {
+  margin-top: 30px;
+  margin-bottom: 2rem;
+  background-color: white;
+  overflow: hidden;
+  max-height: 250px;
+  min-width: 300px;
+  height: fit-content;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  z-index: 100;
+  transform: none;
+  position: relative;
+}
+
+#aboutUsContainer .boxBorder {
+  height: 250px;
+  border-radius: 1rem;
+}
+
+#aboutUsContainer .textBox {
+  font-size: small;
+  font-weight: 0;
+}
+
+#aboutUsContainer .teamSection {
+  margin-top: 50px;
+}
+
+#aboutUsContainer .teamCard {
+  border-radius: 1rem;
+  margin: 1rem auto;
+  padding: 5px;
+  width: 250px;
+}
+
+#aboutUsContainer .cardImage {
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+#aboutUsContainer .textBoxColor {
+  color: rgb(79 70 229);
+}
+
+#aboutUsContainer .text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+@media (max-width: 430px) {
+  #aboutUsContainer .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+  #boxContainer {
+    margin-top: -80px;
+  }
+
+  #aboutUsContainer .hero-div {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  #aboutUsContainer .hero-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  #aboutUsContainer .hero-text {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
