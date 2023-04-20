@@ -38,29 +38,26 @@ function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle id="menu" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Link to={"/"} className="navStyle m-lg-auto me-lg-4">
+          <Nav className="ms-auto m-3">
+            <Link to={"/"} className="navStyle m-lg-auto me-lg-4 mb-2">
               Inicio
             </Link>
             {!userToken ? (
-              <Link to={"/login"} className="navStyle m-lg-auto me-lg-4">
+              <Link to={"/login"} className="navStyle m-lg-auto me-lg-4 mb-2">
                 Iniciar sesión
               </Link>
             ) : (
-              <>
-                <Link
-                  to={"/"}
-                  className="navStyle m-lg-auto me-lg-4"
-                  onClick={() => {
-                    dispatch(logout());
-                    dispatch(clearCart());
-                    dispatch(clearOrder());
-                  }}
-                  style={{ margin: "auto" }}
-                >
-                  Cerrar sesión
-                </Link>
-              </>
+              <Link
+                to={"/"}
+                className="navStyle m-lg-auto  me-lg-4 mb-2"
+                onClick={() => {
+                  dispatch(logout());
+                  dispatch(clearCart());
+                  dispatch(clearOrder());
+                }}
+              >
+                Cerrar sesión
+              </Link>
             )}
             <div className="drop-down d-none d-lg-block me-lg-4">
               <NavDropdown
@@ -73,11 +70,11 @@ function NavBar() {
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-chevron-down"
+                      className="bi bi-chevron-down"
                       viewBox="0 0 16 16"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
                       />
                     </svg>

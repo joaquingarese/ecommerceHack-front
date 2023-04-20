@@ -200,7 +200,6 @@ function Product(props) {
             transition: { duration: 3, repeat: Infinity, repeatType: "yoyo" },
           }}
           transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
-          whileHover={{ scale: 1.1 }}
         >
           <IoArrowBackSharp size={30} className="me-1" />
           <span>Continuar comprando</span>
