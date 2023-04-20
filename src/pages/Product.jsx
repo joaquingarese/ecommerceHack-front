@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartReducer";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DescriptionModal from "../components/DescriptionModal";
 import { IoArrowBackSharp } from "react-icons/io5";
@@ -10,6 +9,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import api from "../api/axios";
 import "./styles/product.css";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 
 function Product(props) {
@@ -107,10 +107,6 @@ function Product(props) {
                 alt="product-image1"
               />
             </div>
-            <div onClick={goBack} role="button">
-              <IoArrowBackSharp size={30} className="me-1" />
-              <span>Continuar comprando</span>
-            </div>
           </div>
           <div className="col-md-8 color-bg buy-div h-100">
             <h3 className="text-bold mb-4">{product.name}</h3>
@@ -194,6 +190,21 @@ function Product(props) {
             </div>
           </div>
         </div>
+        <motion.div
+          className="mb-2 mt-3"
+          onClick={goBack}
+          role="button"
+          initial={{ x: 0 }}
+          animate={{
+            x: [-10, 10, -10],
+            transition: { duration: 3, repeat: Infinity, repeatType: "yoyo" },
+          }}
+          transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
+          whileHover={{ scale: 1.1 }}
+        >
+          <IoArrowBackSharp size={30} className="me-1" />
+          <span>Continuar comprando</span>
+        </motion.div>
       </div>
       <DescriptionModal
         showModal={showModal}

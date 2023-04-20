@@ -81,6 +81,11 @@ function Cart() {
     setSelectedProduct(product);
     setShow(true);
   };
+
+  function goBack() {
+    navigate("/");
+  }
+
   return (
     <div id="cartContainer">
       <div className="header-div">
@@ -214,12 +219,6 @@ function Cart() {
         >
           Checkout
         </button>
-        <div className="mb-4">
-          <Link to="/" className="text-decoration-none text-dark mt-5">
-            <IoArrowBackSharp size={30} className="me-1" />
-            <span>Continuar comprando</span>
-          </Link>
-        </div>
       </div>
       <div className="container my-5" id="cart-md">
         {cart.length === 0 && (
@@ -305,12 +304,22 @@ function Cart() {
         >
           Checkout
         </button>
-
-        <Link to="/" className="text-decoration-none text-dark mt-5 ">
-          <IoArrowBackSharp size={30} className="me-1" />
-          <span>Continuar comprando</span>
-        </Link>
       </div>
+      <motion.div
+        className="mb-4 mt-3 ms-5 ps-3"
+        onClick={goBack}
+        role="button"
+        initial={{ x: 0 }}
+        animate={{
+          x: [-10, 10, -10],
+          transition: { duration: 3, repeat: Infinity, repeatType: "yoyo" },
+        }}
+        transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
+        whileHover={{ scale: 1.1 }}
+      >
+        <IoArrowBackSharp size={30} className="me-1" />
+        <span>Continuar comprando</span>
+      </motion.div>
     </div>
   );
 }
