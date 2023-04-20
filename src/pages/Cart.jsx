@@ -15,8 +15,12 @@ import { useDispatch, useSelector } from "react-redux";
 function Cart() {
   const cart = useSelector((state) => state.cart.cartItems);
   const userToken = useSelector((state) => state.user.token);
+  const [show, setShow] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   let totalPrice = 0;
   let productPrice = 0;
 
@@ -71,8 +75,6 @@ function Cart() {
       }
     }
   };
-  const [show, setShow] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = (product) => {
@@ -234,38 +236,35 @@ function Cart() {
               className="product row mt-2"
               key={product.id}
             >
-              <div className="col">Producto:</div>
-              <div className="col-6">{product.name}</div>
-              <div className="col-6">Stock: </div>
-              <div className="col-6">
+              <div className="col-12 py-2">{product.name}</div>
+              <div className="col-8 d-flex align-items-center py-2">
+                Stock:
                 {product.quantity <= product.stock ? (
-                  <p className="">{product.stock}</p>
+                  <span className="ms-5">{product.stock}</span>
                 ) : (
                   <AnimatePresence>
                     <motion.div
                       animate={{ scale: [0.8, 1.2, 1.0] }}
                       transition={{ duration: 0.2 }}
                     >
-                      <span className="text-danger">
-                        <p>Stock insuficiente. Max: {product.stock}</p>
-                      </span>
+                      <small className="text-danger ms-3">
+                        Stock insuficiente. Max: {product.stock}
+                      </small>
                     </motion.div>
                   </AnimatePresence>
                 )}
               </div>
-              <div className="col-6">Cantidad: </div>
-              <div className="col-6">
-                <div className="d-flex">
+              <div className="col-4">
+                <div className="d-flex ">
                   <button
-                    className="btn btn-outline-secondary"
+                    className="btn btn-outline-secondary ms-auto"
                     type="button"
                     onClick={() => handleDecrement(product)}
                   >
                     -
                   </button>
-                  <p className="ms-3 me-3 m-auto">{product.quantity}</p>
                   <button
-                    className="btn btn-outline-secondary"
+                    className="btn btn-outline-secondary ms-3 me-4"
                     type="button"
                     onClick={() => handleIncrement(product)}
                   >
@@ -273,15 +272,17 @@ function Cart() {
                   </button>
                 </div>
               </div>
-              <div className="col-6">Subtotal:</div>
-              <div className="col-6">
-                <p>{`USD ${product.price * product.quantity}`}</p>
-                <span className="d-none"></span>
+              <div className="col-12 py-2">
+                Cantidad: &nbsp;&nbsp;&nbsp;{product.quantity}
+              </div>
+              <div className="col-6 py-2">Subtotal:</div>
+              <div className="col-6 py-2 text-end pe-4">
+                {`USD ${product.price * product.quantity}`}
               </div>
               <div>
                 <button
                   id="deleteButtom"
-                  className="btn rounded-pill"
+                  className="btn rounded-pill py-3"
                   onClick={() => handleShow(product)}
                 >
                   <FaRegTrashAlt />
