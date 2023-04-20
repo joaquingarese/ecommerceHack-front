@@ -94,7 +94,7 @@ function Home() {
       </section>
       <section className="products container">
         {loading ? (
-          <div className="d-flex flex-column align-items-center mt-5 mb-3">
+          <div className="d-flex flex-column align-items-center mt-5 mb-5">
             <BeatLoader color="#1a202c" size={30} />
           </div>
         ) : (
