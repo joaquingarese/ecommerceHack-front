@@ -36,10 +36,10 @@ function Product(props) {
   useEffect(() => {
     const fetchData = async () => {
       const productData = await api.getOneProduct(params.slug);
-      // setTimeout(() => {
-      setLoading(false);
-      setProduct(productData);
-      // }, 300);
+      setTimeout(() => {
+        setLoading(false);
+        setProduct(productData);
+      }, 1000);
     };
     fetchData();
   }, [params.slug]);
