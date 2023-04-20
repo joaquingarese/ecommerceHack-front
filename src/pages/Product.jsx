@@ -36,8 +36,10 @@ function Product(props) {
   useEffect(() => {
     const fetchData = async () => {
       const productData = await api.getOneProduct(params.slug);
+      // setTimeout(() => {
       setLoading(false);
       setProduct(productData);
+      // }, 300);
     };
     fetchData();
   }, [params.slug]);
@@ -83,7 +85,10 @@ function Product(props) {
   }
 
   return loading ? (
-    <div className="d-flex flex-column align-items-center mt-5 mb-3">
+    <div
+      id="pre-product-container"
+      className="loader-div d-flex flex-column align-items-center mt-5 mb-3"
+    >
       <BeatLoader color="#1a202c" size={30} />
     </div>
   ) : (
