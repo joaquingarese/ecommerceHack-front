@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import "./styles/navBar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userReducer";
+import { clearCart } from "../redux/cartReducer";
+import { clearOrder } from "../redux/orderReducer";
 import { motion, AnimatePresence } from "framer-motion";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
@@ -49,7 +51,11 @@ function NavBar() {
                 <Link
                   to={"/"}
                   className="navStyle m-lg-auto me-lg-4"
-                  onClick={() => dispatch(logout())}
+                  onClick={() => {
+                    dispatch(logout());
+                    dispatch(clearCart());
+                    dispatch(clearOrder());
+                  }}
                   style={{ margin: "auto" }}
                 >
                   Cerrar sesión
