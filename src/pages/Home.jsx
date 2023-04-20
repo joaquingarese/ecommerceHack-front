@@ -96,7 +96,6 @@ function Home() {
         {loading ? (
           <div className="d-flex flex-column align-items-center mt-5 mb-3">
             <BeatLoader color="#1a202c" size={30} />
-            <p>Procesando pagos...</p>
           </div>
         ) : (
           <CategoryTabs />

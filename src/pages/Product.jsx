@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DescriptionModal from "../components/DescriptionModal";
 import { IoArrowBackSharp } from "react-icons/io5";
+import BeatLoader from "react-spinners/BeatLoader";
 import api from "../api/axios";
 import "./styles/product.css";
 import { toast } from "react-toastify";
@@ -14,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 function Product(props) {
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(true);
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -34,6 +36,7 @@ function Product(props) {
   useEffect(() => {
     const fetchData = async () => {
       const productData = await api.getOneProduct(params.slug);
+      setLoading(false);
       setProduct(productData);
     };
     fetchData();
@@ -79,121 +82,123 @@ function Product(props) {
     navigate(-1);
   }
 
-  return (
-    product && (
-      <div id="productContainer">
-        <div className="header-div">
-          <div className="text-container-header">
-            <h1 className="text-white fw-bold ">{product.name}</h1>
-            <small className="text-secondary-color"></small>
-          </div>
+  return loading ? (
+    <div className="d-flex flex-column align-items-center mt-5 mb-3">
+      <BeatLoader color="#1a202c" size={30} />
+    </div>
+  ) : (
+    <div id="productContainer">
+      <div className="header-div">
+        <div className="text-container-header">
+          <h1 className="text-white fw-bold ">{product.name}</h1>
+          <small className="text-secondary-color"></small>
         </div>
-        <div className="description-container container py-5">
-          <div className="bg-secondary color-bg row  flex-wrap">
-            <div className="col-md-4 color-bg d-flex flex-column">
-              <div className="img">
-                <img
-                  src={product.photo}
-                  className="img-size product-image img-fluid mb-4"
-                  alt="product-image1"
-                />
-              </div>
-              <div onClick={goBack} role="button">
-                <IoArrowBackSharp size={30} className="me-1" />
-                <span>Continuar comprando</span>
-              </div>
+      </div>
+      <div className="description-container container py-5">
+        <div className="bg-secondary color-bg row  flex-wrap">
+          <div className="col-md-4 color-bg d-flex flex-column">
+            <div className="img">
+              <img
+                src={product.photo}
+                className="img-size product-image img-fluid mb-4"
+                alt="product-image1"
+              />
             </div>
-            <div className="col-md-8 color-bg buy-div h-100">
-              <h3 className="text-bold mb-4">{product.name}</h3>
-              <div className="description-div">
-                <h4 className="fw-bold">Descripción</h4>
-                <p className="description-text">
-                  {truncateDescription(product.description, 60)}
-                  {product.description &&
-                    product.description.split(" ").length > 60 && (
-                      <span
-                        className="text-primary"
-                        onClick={handleShow}
-                        style={{ cursor: "pointer" }}
-                      >
-                        ... Leer mas!
+            <div onClick={goBack} role="button">
+              <IoArrowBackSharp size={30} className="me-1" />
+              <span>Continuar comprando</span>
+            </div>
+          </div>
+          <div className="col-md-8 color-bg buy-div h-100">
+            <h3 className="text-bold mb-4">{product.name}</h3>
+            <div className="description-div">
+              <h4 className="fw-bold">Descripción</h4>
+              <p className="description-text">
+                {truncateDescription(product.description, 60)}
+                {product.description &&
+                  product.description.split(" ").length > 60 && (
+                    <span
+                      className="text-primary"
+                      onClick={handleShow}
+                      style={{ cursor: "pointer" }}
+                    >
+                      ... Leer mas!
+                    </span>
+                  )}
+              </p>
+              <div className="align-items-center">
+                <div className="d-flex">
+                  <button
+                    className="btn btn-outline-secondary mt-auto mb-auto"
+                    type="button"
+                    onClick={handleDecrement}
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    className="product-input align-items-center"
+                    min="1"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                  />
+                  <button
+                    className="btn btn-outline-secondary mt-auto mb-auto"
+                    type="button"
+                    onClick={handleIncrement}
+                  >
+                    +
+                  </button>
+                  <button
+                    className="btn secondary-color-bg text-white fw-bold my-2 ms-4"
+                    onClick={handleAddToCart}
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+                <span className="fw-bold me-2 d-block fs-5 mt-3">
+                  Precio:&nbsp;&nbsp;&nbsp;
+                  <span className="secondary-color ">
+                    USD {product.price}
+                  </span>{" "}
+                </span>
+                <p className="mt-2 ">
+                  <strong>Stock:</strong>{" "}
+                  <span className="fw-bold secondary-color ms-2">
+                    {product.stock > 0 ? (
+                      product.stock
+                    ) : (
+                      <span className="text-danger text-decoration-underline ">
+                        Sin Stock!
                       </span>
                     )}
-                </p>
-                <div className="align-items-center">
-                  <div className="d-flex">
-                    <button
-                      className="btn btn-outline-secondary mt-auto mb-auto"
-                      type="button"
-                      onClick={handleDecrement}
-                    >
-                      -
-                    </button>
-                    <input
-                      type="number"
-                      className="product-input align-items-center"
-                      min="1"
-                      value={quantity}
-                      onChange={(e) => setQuantity(e.target.value)}
-                    />
-                    <button
-                      className="btn btn-outline-secondary mt-auto mb-auto"
-                      type="button"
-                      onClick={handleIncrement}
-                    >
-                      +
-                    </button>
-                    <button
-                      className="btn secondary-color-bg text-white fw-bold my-2 ms-4"
-                      onClick={handleAddToCart}
-                    >
-                      Añadir al carrito
-                    </button>
-                  </div>
-                  <span className="fw-bold me-2 d-block fs-5 mt-3">
-                    Precio:&nbsp;&nbsp;&nbsp;
-                    <span className="secondary-color ">
-                      USD {product.price}
-                    </span>{" "}
+                    {product.stock < quantity ? (
+                      <p className="text-danger text-decoration-underline ">
+                        Stock insuficiente
+                      </p>
+                    ) : (
+                      <></>
+                    )}
                   </span>
-                  <p className="mt-2 ">
-                    <strong>Stock:</strong>{" "}
-                    <span className="fw-bold secondary-color ms-2">
-                      {product.stock > 0 ? (
-                        product.stock
-                      ) : (
-                        <span className="text-danger text-decoration-underline ">
-                          Sin Stock!
-                        </span>
-                      )}
-                      {product.stock < quantity ? (
-                        <p className="text-danger text-decoration-underline ">
-                          Stock insuficiente
-                        </p>
-                      ) : (
-                        <></>
-                      )}
-                    </span>
-                  </p>
-                  <p className="mt-2 ">
-                    <strong>Categorías:</strong>{" "}
-                    <span className="fw-bold secondary-color">
-                      Café en granos, Café Saborizados
-                    </span>
-                  </p>
-                </div>
+                </p>
+                <p className="mt-2 ">
+                  <strong>Categorías:</strong>{" "}
+                  <span className="fw-bold secondary-color">
+                    Café en granos, Café Saborizados
+                  </span>
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <DescriptionModal
-          showModal={showModal}
-          handleClose={handleClose}
-          handleShow={handleShow}
-          product={product}
-        />
       </div>
-    )
+      <DescriptionModal
+        showModal={showModal}
+        handleClose={handleClose}
+        handleShow={handleShow}
+        product={product}
+      />
+    </div>
   );
 }
 
