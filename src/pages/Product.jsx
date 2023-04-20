@@ -171,22 +171,21 @@ function Product(props) {
                         Sin Stock!
                       </span>
                     )}
-                    {product.stock < quantity ? (
-                      <p className="text-danger text-decoration-underline ">
-                        Stock insuficiente
-                      </p>
-                    ) : (
-                      <></>
-                    )}
                   </span>
                 </p>
                 <p className="mt-2 ">
-                  <strong>Categorías:</strong>{" "}
+                  <strong>Categoría:</strong>{" "}
                   <span className="fw-bold secondary-color">
-                    Café en granos, Café Saborizados
+                    {product.category.name}
                   </span>
                 </p>
               </div>
+              <button
+                className="secondary-color-bg rounded p-1 text-white"
+                onClick={() => navigate("/carrito")}
+              >
+                Ir al carrito
+              </button>
             </div>
           </div>
         </div>
