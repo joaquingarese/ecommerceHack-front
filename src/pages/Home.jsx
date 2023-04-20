@@ -4,11 +4,15 @@ import api from "../api/axios";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function Home() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const fetchData = async () => {
     const products = await api.getProducts();
+    setLoading(false);
     setProducts(products);
   };
   useEffect(() => {
@@ -89,7 +93,14 @@ function Home() {
         </h2>
       </section>
       <section className="products container">
-        <CategoryTabs />
+        {loading ? (
+          <div className="d-flex flex-column align-items-center mt-5 mb-3">
+            <BeatLoader color="#1a202c" size={30} />
+            <p>Procesando pagos...</p>
+          </div>
+        ) : (
+          <CategoryTabs />
+        )}
       </section>
       <AnimatePresence>
         <motion.div
