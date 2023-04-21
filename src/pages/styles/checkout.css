@@ -12,7 +12,6 @@
 #checkoutContainer .purchase-bg {
   border-radius: 9px;
   background-color: rgb(240, 240, 240);
-  /* rgb(240, 239, 239) */
 }
 
 #checkoutContainer body {
@@ -143,12 +142,6 @@
   }
 }
 
-@media (max-width: 289px) {
-  #checkoutContainer .payment-checkout {
-    width: 100% !important;
-  }
-}
-
 /* For screen sizes between 251 and 576 pixels */
 @media (min-width: 290px) and (max-width: 849px) {
   #checkoutContainer .payment-checkout {
@@ -158,6 +151,12 @@
 
 @media (min-width: 850px) {
   #checkoutContainer .payment-checkout {
-    width: 90% !important;
+    width: 70% !important;
+  }
+}
+
+@media (min-width: 1500px) {
+  #checkoutContainer .payment-checkout {
+    width: 50% !important;
   }
 }

@@ -71,11 +71,10 @@ function Checkout() {
           </div>
         </div>
       </div>
-      <div className="container mt-5">
-        <div className="payment-checkout mt-4 m-auto d-flex flex-column">
-          <div className="d-flex justify-content-between fw-bold my-3"></div>
+      <div className=" mt-5">
+        <div className="payment-checkout mt-4 m-auto d-flex flex-column p-3">
           <h5 className="mb-4 fw-bold">Resumen de su compra</h5>
-          <div className="purchase-bg px-5 py-4 ">
+          <div className="purchase-bg px-4 py-4 ">
             <h5 className=" mb-4 text-decoration-underline">
               Lista de Productos:
             </h5>

@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import CartModal from "../components/CartModal";
 import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
+import { ImCart } from "react-icons/im";
 
 function Cart() {
   const [show, setShow] = useState(false);
@@ -216,7 +217,15 @@ function Cart() {
           Checkout
         </button>
       </div>
-      <div className="container my-5" id="cart-md">
+      <div className="container my-4" id="cart-md">
+        <div className="d-flex flex-column mb-3">
+          <ImCart size={74} className="m-auto bigCart-icon" />
+          <hr
+            className="mx-3 my-auto mt-1"
+            style={{ height: "3px", backgroundColor: "black" }}
+          />
+        </div>
+
         {cart.length === 0 && (
           <tr>
             <td colSpan="6" className="text-center fs-5">
@@ -232,19 +241,18 @@ function Cart() {
               key={product.id}
             >
               <div className="col-12 py-2">{product.name}</div>
-              <div className="col-8 d-flex align-items-center py-2">
-                Stock:
+              <div className="col-3 d-flex align-items-center py-2">Stock:</div>
+              <div className="col-5 d-flex align-items-center">
                 {product.quantity <= product.stock ? (
-                  <span className="ms-5">{product.stock}</span>
+                  <span>{product.stock}</span>
                 ) : (
                   <AnimatePresence>
                     <motion.div
                       animate={{ scale: [0.8, 1.2, 1.0] }}
                       transition={{ duration: 0.2 }}
                     >
-                      <small className="text-danger ms-3">
-                        Stock insuficiente.
-                        {product.stock > 0 && ` Max: ${product.stock}`}
+                      <small className="text-danger ">
+                        {product.stock > 0 && ` Max: ${product.stock} (Stock)`}
                       </small>
                     </motion.div>
                   </AnimatePresence>
@@ -268,9 +276,8 @@ function Cart() {
                   </button>
                 </div>
               </div>
-              <div className="col-12 py-2">
-                Cantidad: &nbsp;&nbsp;&nbsp;{product.quantity}
-              </div>
+              <div className="col-3 py-2 d-inline">Cantidad:</div>
+              <div className="col-9 py-2 d-inline">{product.quantity}</div>
               <div className="col-6 py-2">Subtotal:</div>
               <div className="col-6 py-2 text-end pe-4">
                 {`USD ${product.price * product.quantity}`}
@@ -294,10 +301,12 @@ function Cart() {
           </div>
         </div>
         <div className="d-flex">
-          <div className="d-flex" onClick={() => handleShow()} role="button">
-            <span className="text-danger">Vaciar carrito</span>
-            <FaRegTrashAlt className="text-danger ms-3" />
-          </div>
+          {cart.length > 0 && (
+            <div className="d-flex" onClick={() => handleShow()} role="button">
+              <span className="text-danger">Vaciar carrito</span>
+              <FaRegTrashAlt className="text-danger ms-3" />
+            </div>
+          )}
           <button
             className="btn secondary-color-bg text-white fw-bold  ms-auto me-4"
             onClick={() => {

@@ -97,9 +97,8 @@ function Login() {
             animate={{ opacity: singUpopacity }}
             transition={{ duration: 1 }}
             style={{ display: `${formLoginDisplay}` }}
-            className="d-flex flex-column"
           >
-            <motion.h3>Nos alegra que hayas vuelto</motion.h3>
+            <motion.h3 className="mb-4">Nos alegra que hayas vuelto</motion.h3>
             <form onSubmit={handleSubmit} className="ms-2">
               <label htmlFor="email">
                 Ingresa tu Correo electrónico o nombre de usuario
@@ -124,7 +123,7 @@ function Login() {
                 onChange={(event) => setPassword(event.target.value)}
               />
               {message && <p className="text-danger mt-3 mb-0">{message}</p>}
-              <button className=" btn btn-secondary mt-3">
+              <button className=" btn btn-secondary mt-4 d-block w-100 m-auto">
                 Iniciar sesión
               </button>
             </form>
@@ -132,11 +131,10 @@ function Login() {
               href="https://ecommerce-hack-admin.vercel.app/"
               className="text-decoration-none text-white mt-auto"
             >
-              <button className="btn  mt-3 ms-2">
+              <button className="btn  mt-3">
                 <u>Ir al panel de admin</u>
               </button>
             </a>
-
             <motion.span id="loginResponsive" className="text-dark mt-5">
               Todavía no tenes cuenta?
               <div>
@@ -258,15 +256,15 @@ function Login() {
                 onChange={(e) => setPasswordReg(e.target.value)}
               />
               <button
-                className=" btn btn-secondary mt-3"
+                className=" btn btn-secondary mt-4 d-block w-100"
                 onClick={handleRegister}
               >
                 Crear cuenta!
               </button>
             </form>
-            <motion.span id="signupResponsive" className="mt-5">
+            <motion.span id="signupResponsive" className="mt-4">
               Ya tenes una cuenta?
-              <div>
+              <div className="mt-2">
                 <motion.button whileHover={{ scale: 1.1 }} onClick={loginClick}>
                   inicia sesión!
                 </motion.button>

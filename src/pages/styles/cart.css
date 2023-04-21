@@ -12,6 +12,11 @@
   background-color: var(--secondary-color);
 }
 
+#cartContainer .bigCart-icon {
+  opacity: 0.3;
+  transform: rotate(-17deg);
+}
+
 #cartContainer .secondary-color {
   color: var(--secondary-color);
 }
