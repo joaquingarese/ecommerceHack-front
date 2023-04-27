@@ -123,13 +123,13 @@ function Login() {
                 onChange={(event) => setPassword(event.target.value)}
               />
               {message && <p className="text-danger mt-3 mb-0">{message}</p>}
-              <button className=" btn btn-secondary mt-4 d-block w-100 m-auto">
+              <button className=" btn btn-secondary mt-5 d-block w-50 m-auto">
                 Iniciar sesión
               </button>
             </form>
             <a
               href="https://ecommerce-hack-admin.vercel.app/"
-              className="text-decoration-none text-white mt-auto"
+              className="text-decoration-none text-white "
             >
               <button className="btn  mt-3">
                 <u>Ir al panel de admin</u>
