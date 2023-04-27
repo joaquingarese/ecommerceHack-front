@@ -97,6 +97,7 @@ function Login() {
             animate={{ opacity: singUpopacity }}
             transition={{ duration: 1 }}
             style={{ display: `${formLoginDisplay}` }}
+            className="d-flex flex-column"
           >
             <motion.h3 className="mb-4">Nos alegra que hayas vuelto</motion.h3>
             <form onSubmit={handleSubmit} className="ms-2">
@@ -129,9 +130,9 @@ function Login() {
             </form>
             <a
               href="https://ecommerce-hack-admin.vercel.app/"
-              className="text-decoration-none text-white "
+              className="text-decoration-none text-white mt-auto"
             >
-              <button className="btn  mt-3">
+              <button className="btn  mt-3 text-center">
                 <u>Ir al panel de admin</u>
               </button>
             </a>
